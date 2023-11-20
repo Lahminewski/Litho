@@ -1,0 +1,15 @@
+############################
+# Fichier de congiguration #
+############################
+
+# General
+site_title: Devlopment de Litho CMS
+description: 
+keywords: 
+copyright: cc-by-sa 
+author: Lahminewski
+language: fr
+default_page : index
+
+# Theme "default"        
+theme: default
