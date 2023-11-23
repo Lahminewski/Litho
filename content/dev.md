@@ -1,5 +1,5 @@
 ---
-title: Admin CIME !
+title: Dev
 author: Lahminewski
 date: 2023
 robots: noindex,nofollow
@@ -9,33 +9,35 @@ template: index
 # LithoCMS
 
 ## Description du projet
-CMS simple qui peux étre déploiyer rapidment et simplment. Qui fonctionne sans base de donnée et peu etre faciment modifiable par un redacteur, un graphiste ou un devlopeur.
+CMS ultra-simple qui peut être déployé rapidement et simplement. 
+Qui fonctionne sans base de donnée et peu être facilement modifiable par un rédacteur, un graphiste ou un développeur.
+Facile à maintenir
 
 ### Fonction
-- Redaction en marckdown avec entete YAML
+- Rédaction en Markdown avec entêté YAML
 - Pas de base de donnée
 
-## Suite de projet CMS Prepa
+## Suite de projet 
 
-**V0.0**
- - Feuille de style et theme variable   ☑️
- - Menu par defaut tout bien.           ☑️
- - Menu mackdown                        ☑️
- - page variable                        ☑️
- - Lecture de repertoire                ☑️
- - page par defaut                      ☑️
- - CSS CIME
-  - Sous menu                           ☑️
-  - Theme CSS complet                   ☑️
- - Robot not index                      ☑️
- - Dossier image                        ☑️
- - Side bare                            
- - Note de verssion
+**Alpha V0.0** 
+ - Menu Markdown                        [x]
+ - Page variable                        [x]
+ - Lecture de répertoire                [x]
+ - CSS 
+  - Sous menu                           [x]
+  - Thème CSS complet                   [x]
+ - page par défaut                      [x]
+ - Robot not index                      [x]
+ - Dossier image                        [x]
+ - Thème variable                       [ ]
+  - Paramètre YAML Themes               [x]
+  - Paramètre YAML Layout               [x]
+ - Markdown Plus                        [ ]
 
 **V1.0**
  - Galerie photos
- - multilangue
+ - multilingue
  - Flux RSS
- - Getion des .csv pour les datas
- - Editeur en ligne
- - Traquer les bug
+ - Gestion des .csv pour les datas
+ - Éditeur en ligne
+ - Traquer les bugs
