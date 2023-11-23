@@ -3,6 +3,7 @@
 include 'lib/SplitYamlHeader.php'; /*Pour fair Separé le markedown du YAML*/
 include 'lib/ParseYAML.php'; /*Pour utiliser les varable dans le YAML*/
 include 'lib/Parsedown.php'; /*Parsedown pour fair des modOp en Markedown*/
+include 'lib/ParseDownPlus.php'; /*Parsedown pour fair des modOp en Markedown*/
 
 $Parsedown = new Parsedown(); /*declaration de la variable*/
 
@@ -61,8 +62,8 @@ if(isset($_GET['page']) && !empty($_GET['page'])) {
 
         // Parsé le contenu du fichier markedown pour avoir de l'HTML
         $contenu_md = $Parsedown->text($content_md);
-
-
+         // On parse encore les fonction suplementaire de ParseDownPlus
+        $contenu_md = ParseDownPlus($contenu_md);
     } else {
         $contenu_md = "Cette page n'existe pas.";
     }
@@ -74,6 +75,5 @@ if(isset($_GET['page']) && !empty($_GET['page'])) {
    if  (isset($data['robots']))  {$robots_page = $data['robots'];} else {$robots_page ="";}
 
 //*Prparation de la page HTML*/
-  include 'themes/' . $theme . '/header.html'; 
   include 'themes/' . $theme . '/body.html'; 
 ?>
