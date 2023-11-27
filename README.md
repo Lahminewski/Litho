@@ -1,5 +1,5 @@
 # Litho
-This mini CMS is in alpha, so there's no doc yet. 😅 
+This mini CMS is in alpha, so there's no doc detailed yet. 😅 
 
 But basically:  
 - It unzips on a server with php.
