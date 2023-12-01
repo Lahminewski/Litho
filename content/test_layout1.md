@@ -1,5 +1,8 @@
 ---
-title: Test
+title: Layout Test 1
+theme: lab
+layout: base
+robots: noindex,nofollow
 ---
 
 # Markdown Cheat Sheet ;)

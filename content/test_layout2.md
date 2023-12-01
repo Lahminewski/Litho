@@ -1,5 +1,8 @@
 ---
-title: Test
+title: Layout Test 1
+theme: default
+layout: base2
+robots: noindex,nofollow
 ---
 
 # Markdown Cheat Sheet ;)
@@ -131,77 +134,43 @@ X^2^
 
 ### Math 
 
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a}. $$
+$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$
 
 mathML
-<math display="block" class="tml-display" style="display:block math;">
+<math>
   <mrow>
-    <msub>
-      <mo movablelimits="false">∮</mo>
-      <mi>C</mi>
-    </msub>
-    <mrow>
-      <mover>
-        <mi>B</mi>
-        <mo stretchy="false" style="transform:scale(0.75) translate(10%, 30%);">→</mo>
-      </mover>
-      <mo>∘</mo>
-    </mrow>
-    <mrow>
-      <mi mathvariant="normal">d</mi>
-    </mrow>
-    <mover>
-      <mi>l</mi>
-      <mo stretchy="false" style="transform:scale(0.75) translate(10%, 30%);">→</mo>
-    </mover>
+    <mi>x</mi>
     <mo>=</mo>
-    <msub>
-      <mi>μ</mi>
-      <mn>0</mn>
-    </msub>
-    <mrow>
-      <mo fence="true" form="prefix">(</mo>
-      <msub>
-        <mi>I</mi>
-        <mtext>enc</mtext>
-      </msub>
-      <mo>+</mo>
-      <msub>
-        <mi>ε</mi>
-        <mn>0</mn>
-      </msub>
-      <mfrac>
+    <mfrac>
+      <mrow>
         <mrow>
-          <mi mathvariant="normal">d</mi>
+          <mo>-</mo>
+          <mi>b</mi>
         </mrow>
-        <mrow>
+        <mo>&PlusMinus;</mo>
+        <msqrt>
           <mrow>
-            <mi mathvariant="normal">d</mi>
+            <msup>
+              <mi>b</mi>
+              <mn>2</mn>
+            </msup>
+            <mo>-</mo>
+            <mrow>
+              <mn>4</mn>
+              <mo>&InvisibleTimes;</mo>
+              <mi>a</mi>
+              <mo>&InvisibleTimes;</mo>
+              <mi>c</mi>
+            </mrow>
           </mrow>
-          <mi>t</mi>
-        </mrow>
-      </mfrac>
-      <msub>
-        <mo movablelimits="false">∫</mo>
-        <mi>S</mi>
-      </msub>
-      <mrow>
-        <mover>
-          <mi>E</mi>
-          <mo stretchy="false" style="transform:scale(0.75) translate(10%, 30%);">→</mo>
-        </mover>
-        <mo>∘</mo>
-        <mover>
-          <mi>n</mi>
-          <mo stretchy="false" class="tml-xshift" style="math-style:normal;math-depth:0;">^</mo>
-        </mover>
+        </msqrt>
       </mrow>
-      <mspace width="0.2778em"></mspace>
       <mrow>
-        <mi mathvariant="normal">d</mi>
+        <mn>2</mn>
+        <mo>&InvisibleTimes;</mo>
+        <mi>a</mi>
       </mrow>
-      <mi>a</mi>
-      <mo fence="true" form="postfix">)</mo>
-    </mrow>
+    </mfrac>
   </mrow>
 </math>

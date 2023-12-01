@@ -1,5 +1,5 @@
 <?php
-// Cette fonction perment de parse du markdown suplementaire
+// Cette fonction vous permet de parser des données markdown" supplémentaires.
 //
 // GNU GPL par Lahminewski
 //--------------------------------------------------------------------------//
@@ -28,6 +28,8 @@ function ParseDownPlus($markdown) {
     $markdown = preg_replace('/<h2\b[^>]*>(.*?)<\/h2>/', '<h2 id="$1">$1</h2>', $markdown);
     $markdown = preg_replace('/<h3\b[^>]*>(.*?)<\/h3>/', '<h3 id="$1">$1</h3>', $markdown);
 
+    // On met entre les balise mark ce qui se trouve entre == ==
+    $markdown = preg_replace('/==([^=]+)==/', '<mark>$1</mark>', $markdown);
 
     $html = $markdown;
 

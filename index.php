@@ -13,32 +13,16 @@ $folder_content = "./content/"; // Chemin vers le dossier contenant les fichiers
   $conf = file_get_contents('config/config.yml');
   $data_conf = parseYAML($conf);
 
-
-  // Varible pour les meta
-  if  (isset($data_conf['site_title'])) {
-    $site_title =$data_conf['site_title'];
-  }
-  if  (isset($data_conf['description'])) {
-    $description =$data_conf['description'];
-  } 
-  if  (isset($data_conf['keywords'])) {
-    $keywords =$data_conf['keywords'];
-  }
-  if  (isset($data_conf['copyright'])) {
-    $copyright =$data_conf['copyright'];
-  }
-  if  (isset($data_conf['author'])) {
-    $author =$data_conf['author'];
-  }
-  if  (isset($data_conf['language'])) {
-    $language =$data_conf['language'];
-  }
-  if  (isset($data_conf['theme'])) {
-    $theme =$data_conf['theme'];
-  }
-  if  (isset($data_conf['default_page'])) {
-    $default_page =$data_conf['default_page'];
-  }
+  // Varible de conf
+  if  (isset($data_conf['site_title'])) {$site_title =$data_conf['site_title'];}
+  if  (isset($data_conf['description'])) {$description =$data_conf['description'];} 
+  if  (isset($data_conf['keywords'])) {$keywords =$data_conf['keywords'];}
+  if  (isset($data_conf['copyright'])) {$copyright =$data_conf['copyright'];}
+  if  (isset($data_conf['author'])) {$author =$data_conf['author'];}
+  if  (isset($data_conf['language'])) {$language =$data_conf['language'];}
+  if  (isset($data_conf['default_page'])) {$default_page =$data_conf['default_page'];}
+  if  (isset($data_conf['theme'])) {$theme =$data_conf['theme'];}
+  if  (isset($data_conf['layout'])) {$layout =$data_conf['layout'];}
 
 // Vérifie si le paramètre GET "page" existe et n'est pas vide
 if(isset($_GET['page']) && !empty($_GET['page'])) {
@@ -53,7 +37,8 @@ if(isset($_GET['page']) && !empty($_GET['page'])) {
     if(file_exists($markdownFile)) {
         // Lit le contenu du fichier Markdown
         $content = file_get_contents($markdownFile);
-
+        
+    // Groupable en une fonction
         // Affiche le contenu du fichier Markdown
         list($yaml, $content_md, $markdown) = SplitYamlHeader($content);
 
@@ -74,6 +59,11 @@ if(isset($_GET['page']) && !empty($_GET['page'])) {
    if  (isset($data['date']))    {$date_page = $data['date'];}     else {$date_page ="";}
    if  (isset($data['robots']))  {$robots_page = $data['robots'];} else {$robots_page ="";}
 
+  // Si dans la page .md il y a du YAML qui demande un theme ou un layout diferant ou le change
+   if  (isset($data['theme']))   {$theme = $data['theme'];} else {$theme = $theme;}
+   if  (isset($data['layout']))  {$layout = $data['layout'];} else {$layout = $layout;}
+
+
 //*Prparation de la page HTML*/
-  include 'themes/' . $theme . '/body.html'; 
+  include 'themes/' . $theme . '/' . $layout . '.html'; 
 ?>

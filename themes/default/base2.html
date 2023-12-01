@@ -1,0 +1,52 @@
+<html>
+<head> 
+  <title> 
+  <?php echo "$site_title"," | ","$title_page"; ?> 
+  </title>
+  <meta charset="UTF-8"/>
+  <meta name="Rating" content="general">
+
+  <meta name="description" content="<?php echo "$description"; ?>"/>
+  <meta name="keywords" content="<?php echo "$keywords"; ?>"/>
+  <meta name="Content-Language" content="<?php echo "$language"; ?>">
+  <meta name="author" content="<?php echo "$author"; ?>">
+  <meta name="Copyright" content="<?php echo "$copyright"; ?>">
+  <meta name="robots" content="<?php echo "$robots_page"; ?>">
+  
+
+  <meta http-equiv="Content-Style-Type" content="text/css"/>
+  <meta name="Revisit-After" content="20 days">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="./themes/<?php echo "$theme"; ?>/style.css"/>
+  <link rel="shortcut icon" type="image/png" href="./themes/<?php echo "$theme"; ?>/logo.svg"/>
+</head>
+
+<body>
+  <header>
+  </header>
+  <br>
+  <nav class="topnav">
+    <?php echo $Parsedown->text(file_get_contents('content/menu.md')); ?>
+  </nav>
+
+  <section class="row">
+    <div class="main">
+      <?php echo $contenu_md ; ?>
+    </div>
+
+    <div class="side">
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <small>
+    <?php echo "$copyright"," ", "$author_page"," ","$date_page"; ?><br>
+    Fabriqué avec un 🪨 et un peu de 🪢.
+  </small>
+    </p>
+  </footer>
+
+</body>
+</html>

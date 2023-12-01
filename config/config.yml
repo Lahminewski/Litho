@@ -5,11 +5,24 @@
 # General
 site_title: Devlopment de Litho CMS
 description: 
-keywords: 
-copyright: cc-by-sa 
+keywords: CMS, 
+copyright: CC-BY-SA
 author: Lahminewski
 language: fr
 default_page : index
 
-# Theme "default"        
+# Theme "default"       
 theme: default
+layout: base
+
+# Social networking and other links
+  #pixelfed: https://pixelfed.social/lahminewski.lab
+  #mastodon: https://tooting.ch/@lahminewski
+  #peertube:
+  matrix: https://matrix.to/#/#Lahminewski-lab:matrix.org
+  #wikimedia:
+  #telegram:
+  #instagram:
+  #discogs:
+  #bandcamp: 
+  github: https://github.com/Lahminewski/Litho
