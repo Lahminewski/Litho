@@ -1,7 +1,7 @@
 ---
 title: Layout Test 1
-theme: default
-layout: base2
+theme: atom
+layout: base
 robots: noindex,nofollow
 ---
 
