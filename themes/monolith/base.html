@@ -1,26 +1,33 @@
 <?php 
   include 'themes/' . $theme . '/header.html'; 
 ?>
+
 <body>
   <header>
-    <img src="./themes/lab/logo.svg" alt="logo"> <h1>Lahminèwski Lab</h1> <br/> 
-    <h2> <?php echo "$title_page"; ?> </h2>
-    
+    <img src="./themes/<?php echo "$theme"; ?>/logo.svg" alt="logo"> <h1><?php echo "$site_title"; ?></h1>
   </header>
+  <br>
+  <nav class="topnav">
+    <?php echo $Parsedown->text(file_get_contents('content/menu.md')); ?>
+  </nav>
 
-  <div class="bloc page">
-    
-    <nav class="topnav">
-     <?php echo $Parsedown->text(file_get_contents('content/menu.md')); ?>
-    </nav>
-  
-    <section>
-        <?php echo $contenu_md ; ?>
-    </section>
+  <section class="row">
+    <div class="main">
+      <?php echo $contenu_md ; ?>
+    </div>
 
-    <footer>
+    <div class="side">
+    </div>
+  </section>
 
+  <footer>
+  <hr>
   <div class="gauche">
+    <?php echo "$copyright"," ", "$author_page"," ","$date_page"; ?><br>
+    Fabriqué avec un 🪨 et un peu de 🪢.
+  </div>
+  
+  <div class="droite">
         <?php 
         // On verifier que les liens de RS soi present dans le fichier de conf et on l'affiches
         if  (isset($data_conf['github'])) 
@@ -45,12 +52,7 @@
         {echo '<a href="', $data_conf['bandcamp'], '" alt="lien wikimedia"><img src="./themes/', $theme, '/img/bandcamp.svg" alt="bandcamp"></a>';}; 
        ?>
   </div>
-  
-  <div class="droite">
-    <?php echo "$copyright"," ", "$author_page"," ","$date_page"; ?><br>
-    Fabriqué avec un 🪨 et un peu de 🪢.
-  </div>
-</footer>
-  </div>
+  </footer>
+
 </body>
 </html>

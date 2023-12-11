@@ -2,26 +2,31 @@
   include 'themes/' . $theme . '/header.html'; 
 ?>
 <body>
-  <header>
-    <img src="./themes/lab/logo.svg" alt="logo"> <h1>Lahminèwski Lab</h1> <br/> 
-    <h2> <?php echo "$title_page"; ?> </h2>
-    
-  </header>
+<header>
+  <img src="./themes/<?php echo "$theme"; ?>/logo.svg" alt="logo"> <h1><?php echo "$site_title"; ?></h1>
+</header>
 
-  <div class="bloc page">
-    
-    <nav class="topnav">
-     <?php echo $Parsedown->text(file_get_contents('content/menu.md')); ?>
-    </nav>
-  
-    <section>
-        <?php echo $contenu_md ; ?>
-    </section>
+<nav class="topnav">
+<?php // Utiliser la fonction Parsedown pour passer de Makedown -> HTML
+echo $Parsedown->text(file_get_contents('content/menu.md'));
+?>
+</nav>
 
+<section class="row">
+  <div class="main"><?php echo $contenu_md ; ?>
     <footer>
-
-  <div class="gauche">
-        <?php 
+    <?php echo "$copyright"," / ", "$author_page"," / ","$date_page"; ?>
+    </footer>
+  </div>
+  <div class="side">
+        <h3>Contacte</h3>
+        <strong>Gorge Dupon</strong>
+        <a href="https://www.openstreetmap.org/search?query=kisangani#map=13/0.5624/24.9350" class="local">la-bas !</a>
+        <a href="tel:+44000000000" class="tel"> +44 000 00 00 00</a>
+        <a href="mailto:gorge.dupont@xyz.eu" class="mail">gorge.dupont@xyz.eu</a>
+        <br>
+        <hr>
+          <?php 
         // On verifier que les liens de RS soi present dans le fichier de conf et on l'affiches
         if  (isset($data_conf['github'])) 
         {echo '<a href="', $data_conf['github'], '" alt="lien github"><img src="./themes/', $theme, '/img/github.svg" alt="github"></a>';}; 
@@ -45,12 +50,6 @@
         {echo '<a href="', $data_conf['bandcamp'], '" alt="lien wikimedia"><img src="./themes/', $theme, '/img/bandcamp.svg" alt="bandcamp"></a>';}; 
        ?>
   </div>
-  
-  <div class="droite">
-    <?php echo "$copyright"," ", "$author_page"," ","$date_page"; ?><br>
-    Fabriqué avec un 🪨 et un peu de 🪢.
-  </div>
-</footer>
-  </div>
+</section>
 </body>
 </html>

@@ -15,7 +15,7 @@ html,body{height:100%;padding:0;margin:0}
 
 body{
   	/* background:url("/files/Photo - IR/8 Photo de coss_0343-8955.jpg") no-repeat fixed top center #182424; */
-  	background:url("/files/design/nb_wall.jpg") no-repeat fixed top center #182424;
+  	background:url("/themes/lab/wall.jpg") no-repeat fixed top center #182424;
   	background-position:50% 50%;
   	.overlay-dark:before{background-color:#333};
   	background-size:cover;
@@ -31,8 +31,6 @@ header img{
   	width: 80px;
 	text-align: left;	
 	margin: 6px 0px 6px 0px;
-    -ms-transform: rotate(2deg); /* IE 9 */
-    -webkit-transform: rotate(2deg); /* Safari */
     transform: rotate(2deg);
   	transition: width 0.7s, transform 0.7s;
 	}
@@ -53,8 +51,6 @@ header h2{
   	letter-spacing: 5px;
   	font-size: 15px;
   	text-shadow: 1px 1px 3px #000000;
-    -ms-transform: rotate(2deg); /* IE 9 */
-    -webkit-transform: rotate(2deg); /* Safari */
     transform: rotate(2deg);
 	}
 
@@ -65,17 +61,27 @@ header h2{
 
 h1, h2, h3, h4, h5 {
   	font-family: 'Cinzel';
-  	letter-spacing: 11px;
+  	letter-spacing: 10px;
 	text-decoration: none;
   	text-shadow: 0px 1px 3px #000000;
   	color: #ffffff;
 	font-weight:normal;
 	}
 
-h1 {font-size: 1.8em;}
+h1 {font-size: 1.9em;}
 h2 {font-size: 1.6em;}
-h3 {font-size: 1.4em;}
-h3 {font-size: 1.245em;}
+h3 {font-size: 1.3em;}
+h4 {font-size: 1.2em;}
+
+section h2::before {
+    content: "/";
+  	color: #E61414;
+}
+section h3::before {
+    content: "//";
+  	color: #E61414;
+}
+
 h1 a, h2 a, h3 a, footer a {color: #ffffff; font-style: normal;}
 
 a {
@@ -133,67 +139,6 @@ div#side-box {
 }
 
 /* ====== Menu ====== */
-
-nav {
-	background-color: #0b0b0b;
-	border: 0px solid #ffffff;
-	box-shadow: 0px 0px 50px #000;
-  	font-family: 'EB Garamond', 'Amatic SC' , 'Cinzel';
-  	font-variant:small-caps;
-  	text-transform: uppercase;
-	font-size: 16px;
-  	letter-spacing: 10px;
-  
-	padding: 20px;
-	margin-top: 10px;
-	
-	text-align: center;
-	letter-spacing: 4px;
-
-	opacity: 0.8;
-	filter:alpha(opacity=80);
-	}
-
-nav a {
-	background-color: inherit;
-	color: #ffffff;
-	text-decoration: none;
-	text-align: center;
-	opacity: 1.0;
-	transition: color 0.5s;
-	}
-
-nav a:hover {
-	background-color: inherit;
-	color: #9C0C0C;
-	text-shadow: 0px 1px 3px #000000;
-	text-decoration: none;
-	text-align: center;
-	opacity: 1.0;
-	}
-
-nav a::before {
-    content: "//";
-	color: #9C0C0C;
-  	font-size: 1.4em;
-  	letter-spacing: 1px;
-}
-nav a::after {
-    content: "//";
-  	color: #9C0C0C;
-  	font-size: 1.4em;
-  	letter-spacing: 1px;
-}
-nav .current a {
-	background-color: inherit;
-	color: #9A0F0F;
-	text-shadow: 0px 2px 4px #000000;
-	text-decoration: none;
-	text-align: center;
-	opacity: 1.0;
-}
-
-
 nav ul, nav li{
   list-style-type: none;
   margin: 0;
@@ -202,10 +147,10 @@ nav ul, nav li{
 
 nav.topnav {
   list-style-type: none;
-  margin: 0;
+  margin: 0, 10px, 10px;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #000000dd;
 }
 
 nav.topnav li {float: left;}
@@ -214,37 +159,133 @@ nav.topnav li a {
   display: block;
   color: white;
   text-align: center;
-  vertical-align: middle;
-  padding: 12px;
-  margin: 2px;
+  padding: 14px 18px;
   text-decoration: none;
-  height: 30px;
+  font-size: 1.1em;
+  font-weight: 500;
+  letter-spacing: 4px;
+  transition: color 0.5s;
+}
+nav a {
+	background-color: inherit;
+	color: #ffffff;
+	text-decoration: none;
+	text-align: center;
+	font-variant:small-caps;
+  	text-transform: uppercase;
+	opacity: 1.0;
+	transition: color 0.5s;
+	}
+nav a:hover {
+	color: #9C0C0C;
+	}
+
+nav a::before {
+    content: "// ";
+	color: #ccc;
+  	font-size: 1.4em;
+  	letter-spacing: 1px;
+}
+nav a::after {
+    content: " //";
+  	color: #ccc;
+  	font-size: 1.4em;
+  	letter-spacing: 1px;
 }
 
+nav.topnav li a:hover:not(.active) {
+	background-color: #9C0C0C; 
+}
+
+nav.topnav li a.active {background-color: #04AA6D;}
+
+nav.topnav li.right {float: right;}
+
+nav li {
+  border-right: 0px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+/* ====== Menu Deroulent ====== */
+
+nav.topnav ul li{
+    width: 240px;
+}
+nav.topnav ul li:hover {
+  display: block; 
+}
+nav.topnav ul li ul{
+  position: fixed;
+  width: 240px;
+}
 nav.topnav ul li li{
   background-color: #222;
   display: none;
+}
+nav.topnav ul li:hover li {
+  display: block;
+  z-index: +1;
+}
+
+@media screen and (max-width: 800px) {
+  nav.topnav li.right, 
+  nav.topnav li {float: none;}
+  li {border-right: 0px solid #bbb;}
+  nav.topnav ul li{width: none; width: 100%;}
+  nav.topnav ul li ul{position: relative; width: 100%;}
 }
 
 
 /* ====== Corps ====== */
 
 section{
-	box-shadow: 0px 0px 50px #000;
+	box-shadow: 0px 0px 0px #000;
    	background: rgb(33,35,38);
 	border: 0px solid #A5A5A5;
 
 	margin-top: 0px;
 	margin-bottom: 0px;
 	color: #ffffff;
-  	text-align: center;
 	padding: 20px 15% 20px 15%;
  	display: block;
   	min-height: 200px;
-  
-	opacity: 0.97;
-	filter:alpha(opacity=95)
 	}
+
+table{
+   border-collapse: collapse;
+   border: 1px solid whitesmoke;
+   font-size: 1em;
+   width: 100%;
+   margin-top: 20px;
+   margin-bottom: 10px;
+   color: white;
+}
+
+
+td {
+  text-align: center;
+  padding: 6px;
+  border: 1px solid whitesmoke;
+}
+tr:nth-child(even) {background-color: #333;}
+
+th {
+  background-color: #666;
+  padding: 8px;
+  color: white;
+}
+
+code{
+  background-color: #444;
+  font-variant: normal ;
+  font-family: Ubuntu Mono,monospace;
+  display: block;
+  color: white;
+  padding: 8px;
+}
 
 .photo {
   	margin: 20px;
@@ -308,16 +349,6 @@ section{
   	display: table;
   	clear: both;
 	}
-
-.blog-post block{
-	margin: 10px 30px 5px 0px;
-  	border: 3px solid #A5A5A5;
-	}
-
-.blog-comments{
-	margin: 5px 30px 5px 0px;
-	}
-
 .news_title {
 	text-align: center;
 	margin: 10px;
@@ -387,46 +418,6 @@ footer img:hover{
 footer p {display: inline;}
 .gauche {float: left;}
 .droite {float: right; color: #ffffff; letter-spacing: 3px;}
-
-
-/* ====== blog ====== */
-.blog-post {
-		border: 1px solid #333;
-  		background: #222;
-  		padding: 2%;
-  		margin: 3%;
-		}
-
-.blog-info {
-		font-size: 0.8em;
-		}
-
-.blog-post h3 a {
-		text-decoration: none;
-		}
-
-.blog-tags a{
-		color: #ededed;
-		word-spacing: 2em;
-  		font-size: 0.9em;
-		}
-.blog-tags a:before {
-		content: "#"; 
-		}
-
-.blog-comments {
-		margin-bottom: 3px;
-		}
-
-.twitter-share-button {
-		display: inline-block;
-		margin-bottom: -6px;
-		}
-
-.blog-comments>div { /* g+ */
-		vertical-align: bottom !important;
-		margin-bottom: 0px !important;
-		}
 
 
 /* Nouvelles règles si la fenêtre fait au plus 1024px de large */
