@@ -279,3 +279,28 @@ footer img:hover{
   max-width: 30%;
 }
 }
+
+/*News RSS*/
+.rss-box {
+  background-color: #222;
+  padding: 1.25rem;
+  border: 1px solid #555;
+  max-width: 60%;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+a.mention.hashtag  {
+  color: #ffffff77;
+  text-decoration: none;
+}
+a.mention.hashtag span  {
+  color: #fff;
+}
+
+@media (max-width: 850px) {
+.rss-box {
+  max-width: 100%;
+  margin: 15px 3px;
+}
+}
