@@ -1,0 +1,39 @@
+<?php 
+  include 'themes/' . $theme . '/header.html'; 
+?>
+
+<body>
+  <header>
+  </header>
+  <section id="tree">
+      <?php echo $contenu_md ; ?>
+      <ul>
+        <?php // On verifier que les liens de RS soi present dans le fichier de conf et on l'affiches
+          if  (isset($data_conf['github'])) 
+          {echo '<li><a href="', $data_conf['github'], '" alt="lien github"><img src="./themes/', $theme, '/img/github.svg" alt="github"> Github </a></li>';}; 
+          if  (isset($data_conf['pixelfed'])) 
+          {echo '<li><a href="', $data_conf['pixelfed'], '" alt="lien pixelfed"><img src="./themes/', $theme, '/img/pixelfed.svg" alt="pixelfed"> Pixelfed</a></li>';}; 
+          if  (isset($data_conf['mastodon'])) 
+          {echo '<li><a rel="me" href="', $data_conf['mastodon'], '" alt="lien mastodon"><img src="./themes/', $theme, '/img/mastodon.svg" alt="mastodon"> Mastodon</a></li>';}; 
+          if  (isset($data_conf['peertube'])) 
+          {echo '<li><a href="', $data_conf['peertube'], '" alt="lien peertube"><img src="./themes/', $theme, '/img/peertube.svg" alt="peertube"> Peertube</a></li>';}; 
+          if  (isset($data_conf['matrix'])) 
+          {echo '<li><a href="', $data_conf['matrix'], '" alt="lien matrix"><img src="./themes/', $theme, '/img/matrix.svg" alt="matrix"> [matrix]</a></li>';}; 
+          if  (isset($data_conf['wikimedia'])) 
+          {echo '<li><a href="', $data_conf['wikimedia'], '" alt="lien wikimedia"><img src="./themes/', $theme, '/img/wikimedia.svg" alt="wikimedia"> Wikimedia</a></li>';}; 
+          if  (isset($data_conf['telegram'])) 
+          {echo '<li><a href="', $data_conf['telegram'], '" alt="lien telegram"><img src="./themes/', $theme, '/img/telegram.svg" alt="telegram"> Telegram</a></li>';}; 
+          if  (isset($data_conf['instagram'])) 
+          {echo '<li><a href="', $data_conf['instagram'], '" alt="lien instagram"><img src="./themes/', $theme, '/img/instagram.svg" alt="instagram"> Instagram</a></li>';}; 
+          if  (isset($data_conf['discogs'])) 
+          {echo '<li><a href="', $data_conf['discogs'], '" alt="lien wikimedia"><img src="./themes/', $theme, '/img/discogs.svg" alt="discogs"> Discogs</a></li>';}; 
+          if  (isset($data_conf['bandcamp'])) 
+          {echo '<li><a href="', $data_conf['bandcamp'], '" alt="lien wikimedia"><img src="./themes/', $theme, '/img/bandcamp.svg" alt="bandcamp"> Bandcamp</a></li>';}; 
+       ?>
+      </ul>
+  </section>
+  <footer>
+  </footer>
+  
+</body>
+</html>

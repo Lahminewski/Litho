@@ -1,0 +1,61 @@
+<?php 
+  include 'themes/' . $theme . '/header.html'; 
+?>
+
+<body>
+  <header>
+    <img src="./themes/<?php echo "$theme"; ?>/logo.svg" alt="logo"> <h1><?php echo "$site_title"; ?></h1>
+  </header>
+  <br>
+  <nav class="topnav">
+    <?php echo $Parsedown->text(file_get_contents('content/menu.md')); ?>
+  </nav>
+
+  <section class="row">
+    <div class="main">
+      <?php echo $contenu_md ; ?>
+    </div>
+
+    <div class="side">
+      <?php include 'lib/RSS.php'; 
+      rss_feed('https://tooting.ch/@lahminewski/tagged/LithoCMS.rss');
+      echo '<br><a href="https://tooting.ch/@lahminewski/tagged/LithoCMS.rss" alt="lien vers le flux RSS">Flux RSS</a>';
+      ?>
+    </div>
+  </section>
+
+  <footer>
+  <hr>
+  <div class="gauche">
+    <?php echo "$copyright"," ", "$author_page"," ","$date_page"; ?><br>
+    Fabriqué avec un 🪨 et un peu de 🪢.
+  </div>
+  
+  <div class="droite">
+        <?php // On verifier que les liens de RS soi present dans le fichier de conf et on l'affiches
+        if  (isset($data_conf['github'])) 
+        {echo '<a href="', $data_conf['github'], '" alt="lien github"><img src="./themes/', $theme, '/img/github.svg" alt="github"></a>';}; 
+        if  (isset($data_conf['pixelfed'])) 
+        {echo '<a href="', $data_conf['pixelfed'], '" alt="lien pixelfed"><img src="./themes/', $theme, '/img/pixelfed.svg" alt="pixelfed"></a>';}; 
+        if  (isset($data_conf['mastodon'])) 
+        {echo '<a rel="me" href="', $data_conf['mastodon'], '" alt="lien mastodon"><img src="./themes/', $theme, '/img/mastodon.svg" alt="mastodon"></a>';}; 
+        if  (isset($data_conf['peertube'])) 
+        {echo '<a href="', $data_conf['peertube'], '" alt="lien peertube"><img src="./themes/', $theme, '/img/peertube.svg" alt="peertube"></a>';}; 
+        if  (isset($data_conf['matrix'])) 
+        {echo '<a href="', $data_conf['matrix'], '" alt="lien matrix"><img src="./themes/', $theme, '/img/matrix.svg" alt="matrix"></a>';}; 
+        if  (isset($data_conf['wikimedia'])) 
+        {echo '<a href="', $data_conf['wikimedia'], '" alt="lien wikimedia"><img src="./themes/', $theme, '/img/wikimedia.svg" alt="wikimedia"></a>';}; 
+        if  (isset($data_conf['telegram'])) 
+        {echo '<a href="', $data_conf['telegram'], '" alt="lien telegram"><img src="./themes/', $theme, '/img/telegram.svg" alt="telegram"></a>';}; 
+        if  (isset($data_conf['instagram'])) 
+        {echo '<a href="', $data_conf['instagram'], '" alt="lien instagram"><img src="./themes/', $theme, '/img/instagram.svg" alt="instagram"></a>';}; 
+        if  (isset($data_conf['discogs'])) 
+        {echo '<a href="', $data_conf['discogs'], '" alt="lien wikimedia"><img src="./themes/', $theme, '/img/discogs.svg" alt="discogs"></a>';}; 
+        if  (isset($data_conf['bandcamp'])) 
+        {echo '<a href="', $data_conf['bandcamp'], '" alt="lien wikimedia"><img src="./themes/', $theme, '/img/bandcamp.svg" alt="bandcamp"></a>';}; 
+       ?>
+  </div>
+  </footer>
+
+</body>
+</html>
