@@ -16,23 +16,69 @@ function ParseDownPlus($markdown) {
     $markdown = preg_replace('/\[(x|X)\]/m', '<input type="checkbox" checked disabled> ', $markdown);
 
     // Notes de bas de page
-    $markdown = preg_replace('/\[\^(\w+)\]: /', '<br><sup><a href="#fn$1" id="ref$1">$1</a></sup> : ', $markdown);
-    $markdown = preg_replace('/\[\^(\w+)\]/', '<sup><a href="#ref$1" id="fn$1">$1</a></sup>', $markdown);
+    $footnotes = array(); // variable pour stocker les notes de bas de page
+
+	$markdown = preg_replace_callback('/\[\^(\w+)\]: (.+)/', function($matches) use (&$footnotes) {
+		$footnoteId = $matches[1];
+		$footnoteContent = $matches[2];
+		$footnotes[$footnoteId] = $footnoteContent; // ajoute la note de bas de page à la variable
+	}, $markdown);
+
+	$markdown = preg_replace('/\[\^(\w+)\]/', '<sup><a href="#ref$1" id="fn$1">$1</a></sup>', $markdown);
+	
+	$markdown .= '<hr><div id="footnotes"><ol>'; // début de la section des notes de bas de page
+	foreach ($footnotes as $footnoteId => $footnoteContent) {
+		$markdown .= '<li id="ref' . $footnoteId . '"><a href="#fn' . $footnoteId . '">' . $footnoteId . '</a> : ' . $footnoteContent . '</li>';
+	}
+	$markdown .= '</ol></div>'; // fin de la section des notes de bas de page
 
     // Exposent et indice
     $markdown = preg_replace('/\^(\w+)\^/', '<sup>$1</sup>', $markdown);
     $markdown = preg_replace('/\~(\w+)\~/', '<sub>$1</sub>', $markdown);
 
     // On rajoute des ancres au trois premier niveau de titre 
-    $markdown = preg_replace('/<h1\b[^>]*>(.*?)<\/h1>/', '<h1 id="$1">$1</h1>', $markdown);
-    $markdown = preg_replace('/<h2\b[^>]*>(.*?)<\/h2>/', '<h2 id="$1">$1</h2>', $markdown);
-    $markdown = preg_replace('/<h3\b[^>]*>(.*?)<\/h3>/', '<h3 id="$1">$1</h3>', $markdown);
+	$markdown = preg_replace_callback('/<h1>(.*?)<\/h1>/i', 
+	function ($matches) {$content = $matches[1]; $id = str_replace(' ', '_', $content); return "<h1 id=\"$id\">$content</h1>";}, 
+	$markdown);
+	
+	$markdown = preg_replace_callback('/<h2>(.*?)<\/h2>/i', 
+	function ($matches) {$content = $matches[1]; $id = str_replace(' ', '_', $content); return "<h2 id=\"$id\">$content</h2>";}, 
+	$markdown);
+
+	$markdown = preg_replace_callback('/<h3>(.*?)<\/h3>/i', 
+	function ($matches) {$content = $matches[1]; $id = str_replace(' ', '_', $content); return "<h3 id=\"$id\">$content</h3>";},
+	$markdown);
 
     // On met entre les balise mark ce qui se trouve entre == ==
     $markdown = preg_replace('/==([^=]+)==/', '<mark>$1</mark>', $markdown);
 
-    $html = $markdown;
 
+	// Ajoute de fonction Gallery
+			// Regex pour rechercher la balise
+			$regex = '/{{Gallery ([^=]+)}}/';
+			function remplacerBalise($matches) {
+				// Récupérer le chemin de l'emplacement des images
+				$emplacementImages = $matches[1];
+				
+				// Lister les fichiers d'images dans l'emplacement
+				$images = glob($emplacementImages . '/*.{jpg,png,gif,svg,jpeg,webp}', GLOB_BRACE);
+
+				// Créer la galerie d'images
+				$galerie = '<div id="gallery">';
+				foreach ($images as $image) {
+					// Vérifier si une miniature existe dans un sous-répertoire
+					$thumbnail = $emplacementImages . '/miniature/' . basename($image);
+					$src = file_exists($thumbnail) ? $thumbnail : $image;
+					$imageName = pathinfo($image, PATHINFO_FILENAME);
+					$galerie .= '<a href="' . $image . '" class="gallery"><img src="' . $src . '" class="gallery" alt="' . $imageName .'"></a>';
+				}
+				$galerie .= '</div>';
+				return $galerie;
+			}
+			// Effectuer le remplacement de la balise
+			$markdown = preg_replace_callback($regex, 'remplacerBalise', $markdown);
+
+    $html = $markdown;
     return $html;
 }
 
