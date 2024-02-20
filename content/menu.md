@@ -1,0 +1,6 @@
+- [🪨 Home](index.php)
+- [Nouvelles](rss)
+- [Layout ⏷](#)
+	- [monolith ✅](layout_monolith)
+- [LinkTree](tree)
+- [⛰️ GitHub](https://github.com/Lahminewski/Litho)
