@@ -3,10 +3,10 @@
 ############################
 
 # General
-site_title: Devlopment de Litho CMS
-description: 
-keywords: CMS, 
-copyright: CC-BY-SA
+site_title: Litho CMS
+description: Litho est un CMS ultra-basique. Vous pouvez rédiger votre contenu en utilisant le langage Markdown.
+keywords: CMS, KISS, Markdown
+copyright: GNU GPL
 author: Lahminewski
 language: fr
 default_page : index
@@ -17,11 +17,11 @@ layout: base
 
 # Social networking and other links
   #pixelfed: 
-  #mastodon:
+  #mastodon: https://tooting.ch/@lahminewski
   #peertube:
-  matrix: https://matrix.to/#/#Lahminewski-lab:matrix.org
+  #matrix: 
   #wikimedia:
-  #telegram:
+  #telegram: 
   #instagram:
   #discogs:
   #bandcamp: 
