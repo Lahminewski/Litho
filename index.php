@@ -59,10 +59,9 @@ if(isset($_GET['page']) && !empty($_GET['page'])) {
    if  (isset($data['date']))    {$date_page = $data['date'];}     else {$date_page ="";}
    if  (isset($data['robots']))  {$robots_page = $data['robots'];} else {$robots_page ="";}
 
-  // Si dans la page .md il y a du YAML qui demande un theme ou un layout diferant ou le change
+  // Si dans la page .md il y a du YAML qui demande un theme ou un layout diferant on le change
    if  (isset($data['theme']))   {$theme = $data['theme'];} else {$theme = $theme;}
    if  (isset($data['layout']))  {$layout = $data['layout'];} else {$layout = $layout;}
-
 
 //*Prparation de la page HTML*/
   include 'themes/' . $theme . '/' . $layout . '.html'; 
